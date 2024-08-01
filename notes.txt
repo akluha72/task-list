@@ -114,4 +114,39 @@
             -> convert arrays to a laravel collection object
             -> in php arrays are not object, it's primitve data type. you need to use function to do something in arrays
             -> in java arrays are object. 
+    
+    //Model and Migrations
+        -- php artisan make:model {model name} -m will create model and migration files
+        -- model can interact with database table 
+            -> create, read, update, delete 
+        -- ORM (object relational mapping)
+            -> mapping classes to database table
+            -> much more method/ construct sql query / instead of writing sql we ORM / using PHP classes
+            -> creating and updating
+
+        -- Migration version control of database schema in laravel
+            -> modifying your database table using php instead sql (mainpulate database schema)
+            -> using PHP object
         
+        -- Migration have up() and down()
+            -> up()
+                --> for going forward 
+            -> down()
+                --> for going back to rollback your migration
+        
+        -- Use php artisan rollback to revert back to the last migration
+            -> but how many migration will it rollback tho? 
+
+    //Model Factory and seeder
+        -- generate some fake data to load the database
+        1. Factory
+            - You can create your own model factories by using artisan
+            - to setup/define the fake data that will be created
+            - you can also have a variant definition in factory (for example [verified user and unverified user]) so now, seeder will make 12 user with 10 verified user and 2 un-verified user
+        2. Seeding
+            - will need to define the model and how many of data you wanted to create
+
+        3. Model -> has factories -> have seeder
+
+        -- Php aritsan db:Seed
+        -- php artisan migrate:referesh --seed
