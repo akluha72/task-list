@@ -1,0 +1,66 @@
+## SECTION 1 What's laravel and why laravel
+// how does web application works
+
+## SECTION 2 Laravel setup
+// sqlite = A application database that's being stored in the application it self, which means does not required a database connection/embedded in application
+
+## SECTION 3 Discovering Laravel
+    // Understanding composer
+        --
+    // Laravel Directory Structure
+        --
+    //Laravel Root File
+        -- Development and Maintanance 
+            -- .env = environment file setup for different 
+            -- artisan = php command to be used in cli
+            -- editortConfig = IDE environment setup for coding style, to standardize all developer setup.
+
+        -- Version Control
+            -- gitIgnore = A listed file that's not supposed to be in version control/or being upload in repository
+            -- gitAttribute = setting git behavior 
+
+        -- Composer
+            -- composer.json = a declaration of package that will be used in this frameworks, not supposed to be in the respository
+            -- composer.lock = a resolve file from composer.json file that is supposed to be uploaded in repository, so that each developer will have the same setup on the application
+
+        -- Test
+            -- phpunit.xml to run unit test and features test
+        
+        -- FrontEnd 
+            -- viteConfig.js = configuration vite/ bundler / combining multiple js and css file *should improve front end and assets efficiency.
+            -- package.json = the functionality same as the composer.json but for front end package (NPM)
+            -- package.lock = it serve a same purpose as the composer.lock but for front end package (NPM)
+    
+    // How do you configure laravel apps
+        -- using environemnt variable the best way
+        -- two enviroment [local, staging, production]
+        -- Twelve-Factor app 
+            * Store config in environment
+        -- local will always use .env configuration
+        -- Staging & Production will always use System Environment variable
+
+    // Autoloading and PSRs
+        -- namespace = matching the folder name it's being define under composer.json
+        -- PSR-4 (Php standard recommendation)
+
+    // Using Artisan Command 
+        -- artisan is just a way to run artisan command let you manage laravel project, generate file, clear cache and etc 
+        -- php artisan serve
+        -- php artisan tinker (playing with your app, before you build all the actual features)
+
+
+## SECTION 4 (Project 1 Task-List)
+    //Introduction to the project
+        -- list of task, data stored in database
+        -- task are paginated
+        -- task status (complete or not)
+        -- flash message/notification
+        -- perform CRUD on task
+        -- how to handle from
+        -- how to add data into database
+        -- validating user input that user has been send
+        -- display proper error message to inform the user what should/need to be fix
+    
+    // note about the project
+        -- all about routing chapter, only have console.php. and web.php files in /route for a reason
+        
