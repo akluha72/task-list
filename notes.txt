@@ -79,6 +79,29 @@
         -- use route name instead of using route url
         -- run `php artisan route:list` to see the list of route name
         -- Route::fallback = some generic catch all route that will catch will all url that's not fit based on what route that we have defined. it will never show that 404 page instead you can customize what's the response if the user have enter a wrong url to access your applicatoin.
+        -- To use blade template in route return view('{nameOfBladeTemplate})
+        -- To pass data into blade use second arguement in array
+            -> return view('index',[
+                'name' => 'lutfi'
+            ]);
+            // 'name' is variable
+            // 'lutfi' is the value
 
-    //Blade Templating. 
+    //Blade Templating.
+        -- Blade Directive
+            1. If statement
+            2. Loops
+            3. Authentications
+
+        -- Use blade template to render dynamic content that can differ dependent to data
+        -- to render blade template use view() in route.
+        -- to pass data into blade add second arguments on return statement in array
+        -- use laravel directive in blade that's start with '@'
+        -- to output variable use {{$yourVariables}}
+            
+            -- Blade directive new knowledge
+                => in order to check the variable that's being passed in the blade template, Normally we will use @foreach that is being wrapper in @if directive to check.
+                    actually we can use @forelse to the same thing 
+
+        
         
