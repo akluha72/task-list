@@ -61,6 +61,24 @@
         -- validating user input that user has been send
         -- display proper error message to inform the user what should/need to be fix
     
-    // note about the project
+    // Note about the project
         -- all about routing chapter, only have console.php. and web.php files in /route for a reason
+
+    // All about routing
+        -- Routing = a process directing user request, take a form of URLs into some specific action that can return a reponse
+        -- Get url and run some action 
+        -- Dynamic route = a route that will accept a parameter, to do somekind of interaction with our backend of application
+        
+        // What's HTTP
+            -- how to communicate with the server, computer and server only understand http protocol language
+            -- GET = fetching, read data a website from the server
+            -- POST = create some data in server
+            -- PUT = edit some data in server
+            -- DELETE =  deleting data in server
+    // Route name
+        -- use route name instead of using route url
+        -- run `php artisan route:list` to see the list of route name
+        -- Route::fallback = some generic catch all route that will catch will all url that's not fit based on what route that we have defined. it will never show that 404 page instead you can customize what's the response if the user have enter a wrong url to access your applicatoin.
+
+    //Blade Templating. 
         
