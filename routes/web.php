@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Response;
 
 
 
@@ -58,33 +60,31 @@ $tasks = [
 ];
 
 
+Route::get('/', function () {    
+    return redirect()->route('tasks.index');
+});
 
-Route::get('/', function () use($tasks) {
+Route::get('/tasks', function () use ($tasks) {
     return view('index', [
         'tasks' => $tasks
     ]);
-})->name('task.index');
+})->name('tasks.index');
 
+// Route to display one single task
+Route::get('/tasks/{id}', function ($id) use ($tasks) {
+    //laravel collection
+        //convert arrays to a laravel collection object
+        //in php arrays are not object, it's primitve data type. you need to use function to do something in arrays
+        // in java arrays are object. 
+    $task = collect($tasks)->firstWhere('id', $id);
 
-//route to display one single task
-Route::get('/{id}', function($id){
-    return 'one single task ' . $id;
-})->name('task.show');
-
-
-
-
-
-
-
-// Route::get('/hello', function(){
-//     return "you're back in the main page";
-// })->name('hello');
-
-// //redirect url
-// Route::get('/redirect', function(){
-//     return redirect('hello');
-// });
+    //error handling using abort();
+    if(!$task){
+        abort(Response::HTTP_NOT_FOUND);
+        //Response is a class and have a prefix class
+    }
+    return view('show', ['task' => $task]);
+})->name('tasks.show');
 
 
 //For not listed url, it will redirect to this route. 

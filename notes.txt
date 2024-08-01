@@ -108,5 +108,10 @@
                 => in order to check the variable that's being passed in the blade template, Normally we will use @foreach that is being wrapper in @if directive to check.
                     actually we can use @forelse to the same thing 
 
-        
+    //Template Inheritance 
+        -- Some repetitive code in each blade, so we inherit the code instead of DRY code it
+        -- using collect() method
+            -> convert arrays to a laravel collection object
+            -> in php arrays are not object, it's primitve data type. you need to use function to do something in arrays
+            -> in java arrays are object. 
         
