@@ -1,21 +1,17 @@
-<header> Task list</header>
+<title>Task List</title>
+<h1>Task List Application</h1>
 
 <div>
-    {{-- @if (count($tasks))
-        <h2>There are some task need to be done</h2>
-        <div class="task-container">
-            @foreach ($tasks as $task)
-                <p>{{ $task->title }}</p>
-            @endforeach
-        </div>
-    @else
-        <h2>No Tasks yet</h2>
-    @endif
-     --}}
-    {{-- Alternative to check if the variable is exist or not --}}
-    @forelse ($tasks as $task)
-        <p>{{ $task->title}}</p>
-    @empty
-        <p>no id here</p>
-    @endforelse
+    <h2>List of Task</h2>
+    <ol>
+        @forelse ($tasks as $task)
+            <li>
+                {{-- <a href="/{{ $task->id }}">{{ $task->title }}</a> OLD METHODS--}} 
+                <a href="{{ route('task.show', ['id' => $task->id]) }}"> {{ $task->title}}</a>
+            </li>
+        @empty
+            <p>No Task Yet</p>
+        @endforelse
+    </ol>
+
 </div>

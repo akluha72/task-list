@@ -63,7 +63,18 @@ Route::get('/', function () use($tasks) {
     return view('index', [
         'tasks' => $tasks
     ]);
-})->name('mainpage');
+})->name('task.index');
+
+
+//route to display one single task
+Route::get('/{id}', function($id){
+    return 'one single task ' . $id;
+})->name('task.show');
+
+
+
+
+
 
 
 // Route::get('/hello', function(){

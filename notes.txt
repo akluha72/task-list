@@ -86,6 +86,11 @@
             ]);
             // 'name' is variable
             // 'lutfi' is the value
+        
+    // Route Common prefix name
+        -- Prefix name task
+        -- list of element should call 'index'
+        -- show one specific should be names 'show'
 
     //Blade Templating.
         -- Blade Directive
