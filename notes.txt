@@ -130,7 +130,7 @@
         
         -- Migration have up() and down()
             -> up()
-                --> for going forward 
+                --> for going forward / to migrate 
             -> down()
                 --> for going back to rollback your migration
         
@@ -150,3 +150,9 @@
 
         -- Php aritsan db:Seed
         -- php artisan migrate:referesh --seed
+        -- Task::find(); = one single row but it's primary key
+        -- Task::findOrFail($id) = if fail it will show 404 pages
+        -- Task::all() = fetch all data
+        -- Task::latest()->get() = fetch latest data based on the date
+
+

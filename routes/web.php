@@ -64,26 +64,27 @@ Route::get('/', function () {
     return redirect()->route('tasks.index');
 });
 
-Route::get('/tasks', function () use ($tasks) {
+Route::get('/tasks', function (){
     return view('index', [
-        'tasks' => $tasks
+        // 'tasks' => App\Models\Task::all()
+        // 'tasks' => App\Models\Task::latest()->get()
+        'tasks' => App\Models\Task::latest()->where('completed', true)->get()
+
+
     ]);
 })->name('tasks.index');
 
 // Route to display one single task
-Route::get('/tasks/{id}', function ($id) use ($tasks) {
+Route::get('/tasks/{id}', function ($id){
     //laravel collection
         //convert arrays to a laravel collection object
         //in php arrays are not object, it's primitve data type. you need to use function to do something in arrays
-        // in java arrays are object. 
-    $task = collect($tasks)->firstWhere('id', $id);
+        //in java arrays are object. 
+    
 
-    //error handling using abort();
-    if(!$task){
-        abort(Response::HTTP_NOT_FOUND);
-        //Response is a class and have a prefix class
-    }
-    return view('show', ['task' => $task]);
+    return view('show', [
+        'task' => \App\Models\Task::findOrFail($id)
+    ]);
 })->name('tasks.show');
 
 
