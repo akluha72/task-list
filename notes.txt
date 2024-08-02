@@ -161,3 +161,19 @@
 
     // Forms and CSRF Protection
         -- what's csrf? 
+            -> cross-site request forgery
+            -> laravel genearte a unique token, for this form submission it happens in middleware
+            -> you need to include crsf for each form, or else you will get the 419 error 
+            -> what's session and cookies? how does it work??????
+        -- creating a form
+            -- input field
+                -> name = will be the name of the data submitted by the form
+                -> id = binding specific label to the input, example someone click on the label the input will be activated. 
+                -
+        -- to create a route that's return a view you can simplify the route like this
+            -> Route::view('/tasks/create', 'create)
+        -- the order/sort of the route does matter. (laravel should fix this / do we need to use route group)
+        -- php artisan route:list to view list of route that laravel read. 
+        -- Best practise of route sort the route get and post
+
+    // LARAVEL 11 DOESN'T HAVE middleware   

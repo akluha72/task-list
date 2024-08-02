@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 
 
@@ -70,27 +71,22 @@ Route::get('/tasks', function () {
         // 'tasks' => App\Models\Task::latest()->get()
         'tasks' => App\Models\Task::latest()->where('completed', true)->get()
 
-
     ]);
 })->name('tasks.index');
 
-Route::view('/tasks/create', 'create')
-    ->name('task.create');
+Route::view('/tasks/create', 'create')->name('tasks.create');
 
 // Route to display one single task
 Route::get('/tasks/{id}', function ($id) {
-    //laravel collection
-    //convert arrays to a laravel collection object
-    //in php arrays are not object, it's primitve data type. you need to use function to do something in arrays
-    //in java arrays are object. 
     return view('show', [
         'task' => \App\Models\Task::findOrFail($id)
     ]);
 })->name('tasks.show');
 
-Route::post('/tasks', function(){
-    dd("we posting data in database");
+Route::post('/tasks', function (Request $request){
+    dd($request->all());
 })->name('tasks.store');
+
 //For not listed url, it will redirect to this route. 
 Route::fallback(function () {
     return ' where are you going actually huh?, this page has been return by fallback route';
