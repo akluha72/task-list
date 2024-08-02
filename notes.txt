@@ -203,5 +203,11 @@
 
     // Create Edit form
         -- Route model binding (to fetch single model)
-        --
+        -- On HTML side it only accept GET and POST method 
+            -> add laravel directive method @method('PUT') in the form
+            -> in other framework it called method spoofing
+        -- Code mostly identical from create module
+        -- Old directive() only works in POST method (don't use on important password)
+
+    // Keep old Values in the form
     // LARAVEL 11 DOESN'T HAVE middleware and kernel need to use configuration in boostrap folder
