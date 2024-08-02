@@ -176,4 +176,4 @@
         -- php artisan route:list to view list of route that laravel read. 
         -- Best practise of route sort the route get and post
 
-    // LARAVEL 11 DOESN'T HAVE middleware   
+    // LARAVEL 11 DOESN'T HAVE middleware and kernel need to use configuration in boostrap folder
