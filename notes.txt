@@ -151,8 +151,13 @@
         -- Php aritsan db:Seed
         -- php artisan migrate:referesh --seed
         -- Task::find(); = one single row but it's primary key
-        -- Task::findOrFail($id) = if fail it will show 404 pages
+        -- Task::findOrFail($id) = if fail it will show 404 pages it will return null value 
         -- Task::all() = fetch all data
         -- Task::latest()->get() = fetch latest data based on the date
+        -- Task::latest()->where('completed', true)->get() = specify based on condition of column
+        -- query builder exist all or find need to call get() at the end to execute the query
+        -- Use php artisan tinker to test out the ORM \App\Models\Task::select('id', 'title')->where('completed', true)->get();
+        -- link for query builder for references = can be found in laravel website
 
-
+    // Forms and CSRF Protection
+        -- what's csrf? 
