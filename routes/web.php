@@ -6,81 +6,52 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Models\Task;
-
+use App\Http\Requests\TaskRequest;
 
 Route::get('/', function () {
     return redirect()->route('tasks.index');
 });
 
+//Route list of all task
 Route::get('/tasks', function () {
     return view('index', [
-        // 'tasks' => App\Models\Task::all()
-        // 'tasks' => App\Models\Task::latest()->get()
         'tasks' => Task::latest()->where('completed', true)->get()
-
     ]);
 })->name('tasks.index');
 
+//Route Create a new Task
 Route::view('/tasks/create', 'create')->name('tasks.create');
 
 // Route to display one single task
-Route::get('/tasks/{id}', function ($id) {
+Route::get('/tasks/{task}', function (Task $task) {
     return view('show', [
-        'task' => Task::findOrFail($id)
+        'task' => $task
     ]);
 })->name('tasks.show');
 
-Route::get('/tasks/{id}/edit', function ($id) {
+// Route to display edit task layout
+Route::get('/tasks/{task}/edit', function (Task $task) {
     return view('edit', [
-        'task' => Task::findOrFail($id)
+        'task' => $task
     ]);
 })->name('tasks.edit');
 
-Route::put('/tasks/{id}', function ( $id, Request $request){
-    $data = $request->validate([
-        'title' => 'required|max:255',
-        'description' => 'required',
-        'long_description' => 'required'
-    ]);
-
-    //create new model object
-    $task =  Task::findOrFail($id);
-    //setting task property
-    $task->title = $data['title'];
-    $task->description = $data['description'];
-    $task->long_description = $data['long_description'];
-    //this create a new class model
-    //call save method save(); to saved changes in database. 
-    
-    $task->save();
-
-    return redirect()->route('tasks.show', ['id' => $task->id])
-        ->with('success', 'Task updated successfuly');
-})->name('tasks.update');
-
-
-
-
-Route::post('/tasks', function (Request $request){
-    $data = $request->validate([
-        'title' => 'required|max:255',
-        'description' => 'required',
-        'long_description' => 'required'
-    ]);
-
-    //create new model object
-    $task = new Task;
-    //setting task property
-    $task->title = $data['title'];
-    $task->description = $data['description'];
-    $task->long_description = $data['long_description'];
-    //this create a new class model
-    //call save method save(); to saved changes in database. 
-
-    $task->save();
-    return redirect()->route('tasks.show', ['id' => $task->id])
+// Route to submit the form / create task
+Route::post('/tasks', function (TaskRequest $request){
+ 
+    $task = Task::create($request->validated());
+    return redirect()->route('tasks.show', ['task' => $task->id])
         ->with('success', 'Task created successfuly');
 })->name('tasks.store');
+
+// Route to update the edit 
+Route::put('/tasks/{task}', function (Task $task, TaskRequest $request){
+
+    $task->update($request->validated());
+
+    return redirect()->route('tasks.show', ['task' => $task->id])
+        ->with('success', 'Task updated successfuly');
+})->name('tasks.update');
 
 
 //For not listed url, it will redirect to this route. 
