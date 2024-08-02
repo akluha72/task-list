@@ -197,4 +197,11 @@
             -> technically this is how our application can idenitify that this is stil the same user based on the sessions. 
             -> Flash message work the way, first time we request it not in the sessions, it only appears when it's being used
             -> {{ $message }} is a special variable that contain error message
+
+            ---> sessions and validation error are stored in the seession, how to add and display a flash messages inside the sessions
+            ---> Route/controller -> sessions -> layout blade
+
+    // Create Edit form
+        -- Route model binding (to fetch single model)
+        --
     // LARAVEL 11 DOESN'T HAVE middleware and kernel need to use configuration in boostrap folder
