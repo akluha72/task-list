@@ -47,8 +47,9 @@ Route::post('/tasks', function (Request $request){
     //call save method save(); to saved changes in database. 
 
     $task->save();
-    return redirect()->route('tasks.show', ['id' => $task->id]);
-})->name('tasks.store');
+    return redirect()->route('tasks.show', ['id' => $task->id])
+        ->with('success', 'Task created successfuly');
+    })->name('tasks.store');
 
 //For not listed url, it will redirect to this route. 
 Route::fallback(function () {

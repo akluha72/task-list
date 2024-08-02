@@ -176,4 +176,25 @@
         -- php artisan route:list to view list of route that laravel read. 
         -- Best practise of route sort the route get and post
 
+    // Validating and Storing data using ORM
+        -- validation
+            -> $request->validate()
+                -> it will only works if the validation is pass, or else it will not execute the next line of code? 
+                -> and it will be store in array form
+                -> if it's invalid, it will redirect to the last page, and will set a session with an error variable. And display the error in the input.
+
+        -- display validation error {{ $errors }}
+            -> laravel error package that does come from laravel 
+            -> always sanitize and validate user input before process/store the data in database.
+
+    // Sessions, Errors & Flash Messages
+        -- Session & how laravel handling sessions
+            -> Sessions = Store data that's specific to the user visit on the website 
+            -> Sessions typically start when they visit the website and close when they remove the browser
+            -> Laravel have a tool that you can retrieve the data and store in your application
+            -> For example user cart, also error are being stored in session for laravel frameworks
+            -> Laravel unique session id are being stored in user cookies browsers
+            -> technically this is how our application can idenitify that this is stil the same user based on the sessions. 
+            -> Flash message work the way, first time we request it not in the sessions, it only appears when it's being used
+            -> {{ $message }} is a special variable that contain error message
     // LARAVEL 11 DOESN'T HAVE middleware and kernel need to use configuration in boostrap folder
