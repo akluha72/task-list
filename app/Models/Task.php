@@ -11,6 +11,10 @@ class Task extends Model
     //has protection from mass assignment;
 
     //explicit tell laravel what property can be modified
-    protected $fillable = ['title', 'description', 'long_description'];
-    // protected $guarded = [''];
+    protected $fillable = ['title', 'description', 'long_description', 'completed'];
+    
+    public function toggleComplete(){
+        $this->completed = !$this->completed;
+        $this->save();
+    }
 }

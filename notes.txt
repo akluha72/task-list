@@ -209,5 +209,14 @@
         -- Code mostly identical from create module
         -- Old directive() only works in POST method (don't use on important password)
 
+    // Adding Pagination
+        -- to pagination data
+        -- ->paginate() it will autmatically create a page for your application
+        -- also autmatically generate link
+        -- read page parameter automatically
+        -- customize how many element you want to show in page by using ->paginate(3)
+
+    // Toggling Task State
+        
     // Keep old Values in the form
     // LARAVEL 11 DOESN'T HAVE middleware and kernel need to use configuration in boostrap folder
