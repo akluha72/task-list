@@ -36,6 +36,6 @@
                 <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
-        <button type="submit">Edit Task</button>
+        <button type="submit" class="btn">Edit Task</button>
     </form>
 @endsection

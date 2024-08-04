@@ -226,6 +226,7 @@
         -- CDN = content delivery network
         -- @class directive add style based on the condition
         -- blade directive ->diffForHumans() to translate the date 
+        -- Using @class directive to highlight the border of input when got an error
         
     // Keep old Values in the form
     // LARAVEL 11 DOESN'T HAVE middleware and kernel need to use configuration in boostrap folder
