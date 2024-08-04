@@ -217,6 +217,15 @@
         -- customize how many element you want to show in page by using ->paginate(3)
 
     // Toggling Task State
+        -- add function in your model is a good practice
+        --
+
+    // Tailwind css
+        -- css frameworks
+        -- predifined classes
+        -- CDN = content delivery network
+        -- @class directive add style based on the condition
+        -- blade directive ->diffForHumans() to translate the date 
         
     // Keep old Values in the form
     // LARAVEL 11 DOESN'T HAVE middleware and kernel need to use configuration in boostrap folder
