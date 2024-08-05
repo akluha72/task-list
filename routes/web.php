@@ -15,7 +15,7 @@ Route::get('/', function () {
 //Route list of all task
 Route::get('/tasks', function () {
     return view('index', [
-        'tasks' => Task::latest()->where('completed', true)->get()
+        'tasks' => Task::latest()->paginate(5)
     ]);
 })->name('tasks.index');
 
@@ -54,10 +54,18 @@ Route::put('/tasks/{task}', function (Task $task, TaskRequest $request){
 })->name('tasks.update');
 
 Route::delete('/tasks/{task}', function (Task $task){
-    $task->delete();
 
+    $task->delete();
     return redirect()->route('tasks.index')->with('success', 'Task Deleted successfully!');
+
 })->name('tasks.destroy');
+
+
+Route::put('tasks/{task}/toggle-complete', function(Task $task){
+    $task->toggleComplete();
+    return redirect()->back()->with('success', 'Task updated successfully!');
+})->name('tasks.toggle-complete');
+
 
 //For not listed url, it will redirect to this route. 
 Route::fallback(function () {

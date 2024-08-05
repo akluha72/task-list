@@ -209,6 +209,7 @@
         -- Code mostly identical from create module
         -- Old directive() only works in POST method (don't use on important password)
 
+<<<<<<< HEAD
     // Reusability (Route Model Binding Form Request, Mass Assignments)
         -- Route model binding
             -> Don't have to explicitly fetch data from the DB when working with single models
@@ -234,4 +235,26 @@
     // Reusable  blade code
         -- a bit confusing not sure it's a good practice or not
         -- but for sure it avoid DRY
+=======
+    // Adding Pagination
+        -- to pagination data
+        -- ->paginate() it will autmatically create a page for your application
+        -- also autmatically generate link
+        -- read page parameter automatically
+        -- customize how many element you want to show in page by using ->paginate(3)
+
+    // Toggling Task State
+        -- add function in your model is a good practice
+        --
+
+    // Tailwind css
+        -- css frameworks
+        -- predifined classes
+        -- CDN = content delivery network
+        -- @class directive add style based on the condition
+        -- blade directive ->diffForHumans() to translate the date 
+        -- Using @class directive to highlight the border of input when got an error
+        
+    // Keep old Values in the form
+>>>>>>> 534745cab07c97b050a6f0abcdc019e8cd925d7b
     // LARAVEL 11 DOESN'T HAVE middleware and kernel need to use configuration in boostrap folder

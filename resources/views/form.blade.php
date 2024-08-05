@@ -39,7 +39,7 @@
             @enderror
         </div>
         <div>
-            <button type="submit">
+            <button type="submit" class="btnd">
                 @isset($task)
                     Update task
                 @else
