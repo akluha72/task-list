@@ -34,7 +34,7 @@
     // How do you configure laravel apps
         -- using environemnt variable the best way
         -- two enviroment [local, staging, production]
-        -- Twelve-Factor app 
+        -- Twelve-Factor app (another methodology of creating web app / sass)
             * Store config in environment
         -- local will always use .env configuration
         -- Staging & Production will always use System Environment variable
@@ -46,8 +46,7 @@
     // Using Artisan Command 
         -- artisan is just a way to run artisan command let you manage laravel project, generate file, clear cache and etc 
         -- php artisan serve
-        -- php artisan tinker (playing with your app, before you build all the actual features)
-
+        -- php artisan tinker (playing with your database app, before you build all the actual features)
 
 ## SECTION 4 (Project 1 Task-List)
     //Introduction to the project
@@ -62,24 +61,25 @@
         -- display proper error message to inform the user what should/need to be fix
     
     // Note about the project
-        -- all about routing chapter, only have console.php. and web.php files in /route for a reason
+        -- all about routing chapter, only have console.php and web.php files in /route for a reason
 
     // All about routing
         -- Routing = a process directing user request, take a form of URLs into some specific action that can return a reponse
         -- Get url and run some action 
         -- Dynamic route = a route that will accept a parameter, to do somekind of interaction with our backend of application
         
-        // What's HTTP
+        --> What's HTTP
             -- how to communicate with the server, computer and server only understand http protocol language
             -- GET = fetching, read data a website from the server
             -- POST = create some data in server
             -- PUT = edit some data in server
             -- DELETE =  deleting data in server
+
     // Route name
-        -- use route name instead of using route url
+        -- use route name instead of using route url (the best practice)
         -- run `php artisan route:list` to see the list of route name
-        -- Route::fallback = some generic catch all route that will catch will all url that's not fit based on what route that we have defined. it will never show that 404 page instead you can customize what's the response if the user have enter a wrong url to access your applicatoin.
-        -- To use blade template in route return view('{nameOfBladeTemplate})
+        -- Route::fallback() = some generic catch all route that will catch all url that's not exist based on what route that we have defined. it will never show that 404 page instead you can customize what's the response if the user have enter a wrong url to access your applicatoin.
+        -- To use blade template in route return Route::view('/tasks/create', 'create')->name('tasks.create');
         -- To pass data into blade use second arguement in array
             -> return view('index',[
                 'name' => 'lutfi'
@@ -88,17 +88,25 @@
             // 'lutfi' is the value
         
     // Route Common prefix name
-        -- Prefix name task
         -- list of element should call 'index'
         -- show one specific should be names 'show'
 
     //Blade Templating.
         -- Blade Directive
-            1. If statement
-            2. Loops
-            3. Authentications
+            1. If statement (@if @else @endif)
+            2. Loops    (@foreah() @endforeach)
+            3. Authentications (@auth)
+            4. Extends (@extends)
+            5. section (@section)
+            6. Yield (@yield)
+            7. @csrf
+            8. @method('PUT')
+            9. @isset & @endisset
+            10. @error @enderror
+            11. @forelse *An alternative of foreach wrapped by if else condition
+            12. @class() *To be used if, a certain model condition met, will implemement the class to the HTML element. 
 
-        -- Use blade template to render dynamic content that can differ dependent to data
+        -- Use blade template to render dynamic content that can differ dependent to the data that's being return from controller
         -- to render blade template use view() in route.
         -- to pass data into blade add second arguments on return statement in array
         -- use laravel directive in blade that's start with '@'
@@ -136,6 +144,7 @@
         
         -- Use php artisan rollback to revert back to the last migration
             -> but how many migration will it rollback tho? 
+                -- This command rolls back the last "batch" of migrations, which may include multiple migration files (laravel doucumentation source)
 
     //Model Factory and seeder
         -- generate some fake data to load the database
@@ -197,8 +206,9 @@
             -> technically this is how our application can idenitify that this is stil the same user based on the sessions. 
             -> Flash message work the way, first time we request it not in the sessions, it only appears when it's being used
             -> {{ $message }} is a special variable that contain error message
+            -> Create a new Customize request file in app/http/request/..
 
-            ---> sessions and validation error are stored in the seession, how to add and display a flash messages inside the sessions
+            ---> sessions and validation error are stored in the session, how to add and display a flash messages inside the sessions
             ---> Route/controller -> sessions -> layout blade
 
     // Create Edit form
@@ -209,7 +219,6 @@
         -- Code mostly identical from create module
         -- Old directive() only works in POST method (don't use on important password)
 
-<<<<<<< HEAD
     // Reusability (Route Model Binding Form Request, Mass Assignments)
         -- Route model binding
             -> Don't have to explicitly fetch data from the DB when working with single models
@@ -235,7 +244,6 @@
     // Reusable  blade code
         -- a bit confusing not sure it's a good practice or not
         -- but for sure it avoid DRY
-=======
     // Adding Pagination
         -- to pagination data
         -- ->paginate() it will autmatically create a page for your application
@@ -245,7 +253,7 @@
 
     // Toggling Task State
         -- add function in your model is a good practice
-        --
+        -- add a simple toggle function in model because it only to switch either true of false. 
 
     // Tailwind css
         -- css frameworks
@@ -256,5 +264,4 @@
         -- Using @class directive to highlight the border of input when got an error
         
     // Keep old Values in the form
->>>>>>> 534745cab07c97b050a6f0abcdc019e8cd925d7b
     // LARAVEL 11 DOESN'T HAVE middleware and kernel need to use configuration in boostrap folder
