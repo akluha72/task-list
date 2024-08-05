@@ -209,5 +209,29 @@
         -- Code mostly identical from create module
         -- Old directive() only works in POST method (don't use on important password)
 
-    // Keep old Values in the form
+    // Reusability (Route Model Binding Form Request, Mass Assignments)
+        -- Route model binding
+            -> Don't have to explicitly fetch data from the DB when working with single models
+            -> Resolve modal instances based on the type enterd variable name into route
+            -> features in laravel autmatically resolve modal instances based on type entered in the route definition
+            -> reduce model fetching, by replace the id with model name? 
+
+        -- From Request (duplicate validation rules)
+            -> To Remove DRY Code
+            -> we put it one place by create a form request. 
+            -> only make sense if you have a set of rules and extract it in form request
+            -> php artisan make:request TaskRequest ( create for both create and update)
+            -> validation will happens before the first line of the route is run. if no data is being passed to the route it will not run the code under the route.
+            -> create a customize request that will be use in route 
+                --> Route::put('/tasks/{task}', function (Task $task, TaskRequest $request) notice that instead of (Request $request, now it became TaskRequest)? 
+
+        -- Shortcut for storing data 
+            -> instead of create a new instance of model and store it one by one. this is the alternative of doing instance
+            -> need to do with fillable property
+
+        -- Soft Delete (not really delete the data in database, but being remove from model)
+
+    // Reusable  blade code
+        -- a bit confusing not sure it's a good practice or not
+        -- but for sure it avoid DRY
     // LARAVEL 11 DOESN'T HAVE middleware and kernel need to use configuration in boostrap folder
