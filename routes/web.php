@@ -15,7 +15,7 @@ Route::get('/', function () {
 //Route list of all task
 Route::get('/tasks', function () {
     return view('index', [
-        'tasks' => Task::latest()->paginate(5)
+        'tasks' => Task::latest()->paginate(10)
     ]);
 })->name('tasks.index');
 

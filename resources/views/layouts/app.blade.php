@@ -33,6 +33,7 @@
 
     <title>Laravel 11: Task List App</title>
     @yield('styles')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="container mx-auto mt-10 mb-10 max-w-lg">
